@@ -19,7 +19,7 @@ export class UserService {
   private storageKeyBackend = 'backendUser';
 
   //private baseUrl = 'http://localhost:5294/api/';
-  private baseUrl = 'https://servicolinux-epgcchhfetabakda.brazilsouth-01.azurewebsites.net/';
+  private baseUrl = 'https://servicolinux-epgcchhfetabakda.brazilsouth-01.azurewebsites.net/api/';
 
   private putUrl = this.baseUrl + 'Login'; 
 
