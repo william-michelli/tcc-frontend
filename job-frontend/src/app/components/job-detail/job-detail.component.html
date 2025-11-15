@@ -1,9 +1,9 @@
 <div *ngIf="job; else noJob" class="card shadow-sm mb-3">
   <div class="card-body job-card">
 
-    <button class="btn btn-outline-primary copy-btn" (click)="copyLink()" *ngIf="job">
-      Copiar link da vaga
-    </button>
+<button class="btn btn-outline-primary copy-btn" (click)="copyLink()" *ngIf="job">
+   <i class="fas fa-link fa-lg"></i> Copiar
+</button>
 
     <div class="title-row">
       <h3 class="card-title title">{{ job.title }}</h3>
@@ -96,7 +96,7 @@
           <p><strong>Email:</strong> {{ job.userEmail }}</p>
           <p *ngIf="job.userCompanyName" ><strong>Empresa:</strong> {{ job.userCompanyName }}</p>
 
-          <button class="btn btn-primary" (click)="closeUserModal()">Fechar</button>
+          <button class="btn modal-btn" (click)="closeUserModal()">Fechar</button>
         </div>
       </div>
     </div>
