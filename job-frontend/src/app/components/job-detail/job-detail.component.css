@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap');
+
+h2 {
+  margin-top: 0;
+}
+
+ul {
+  margin-top: 10px;
+}
+
+.title{
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bold;
+}
+
+.job-date {
+  margin-top: 0.5rem;
+  margin-right: 1rem;
+  text-align: right;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.job-description{
+  text-align: justify;
+  text-justify: inter-word;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-buttons {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.divider {
+  border: none;            
+  border-top: 1px solid #272727;
+  margin: 1rem 0; 
+}
+
+.job-contact {
+  padding: 1rem;
+}
+
+/* Duas colunas */
+.contact-columns {
+  display: flex;
+  gap: 2rem; /* espaçamento entre colunas */
+  flex-wrap: wrap; /* responsivo */
+}
+
+/* Cada coluna */
+.contact-column {
+  flex: 1 1 200px; /* ocupa metade do espaço ou mínimo de 200px */
+}
+
+
+/* Container do botão */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* Botão de candidatura */
+.btn-link {
+  padding: 0.5rem 1.2rem;
+  background-color: #2a5298;
+  color:white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.2s;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+
+.btn-link:hover {
+  background-color: #006bb3;
+  transform: translateY(-1px);
+}
+
+/* TAGS ############################################################## */
+
+.tag {
+  padding: 0.35rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-block;
+  margin-right: 0.4rem;
+  margin-bottom: 0.3rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: background 0.2s, transform 0.2s;
+  cursor: default;
+}
+
+.tag:hover {
+  transform: translateY(-1px);
+}
+
+/* cinza */
+.tag-normal {
+  background-color: #e0e0e0;
+  border: 1px solid #b0b0b0;
+  color: #333;
+}
+
+.tag-normal:hover {
+  background-color: #d5d5d5;
+}
+
+/* azul */
+.tag-course {
+  background-color: #cce5ff;
+  color: #004085;
+  border: 1px solid #b3d7ff;
+}
+
+.tag-course:hover {
+  background-color: #b3d7ff;
+}
+
+.approve-btn {
+  background-color: #28a745;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin: 5px;
+}
+
+.approve-btn:hover {
+  background-color: #218838;
+}
+
+.reject-btn {
+  background-color: #dc3545;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin: 5px;
+}
+
+.reject-btn:hover {
+  background-color: #c82333;
+}
+
+.close-btn {
+  background-color: #6c757d; /* cinza neutro */
+  color: white;
+  border-radius: 8px;
+  border: none;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin: 5px;
+}
+
+.close-btn:hover {
+  background-color: #5a6268; /* cinza um pouco mais escuro no hover */
+}
+
+.job-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 1rem;    /* distância do topo do card */
+  right: 1rem;  /* distância da direita do card */
+  z-index: 10;  /* garante que fique acima de outros elementos */
+}
+
+.user-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+}
+
+.user-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  width: 350px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.user-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}

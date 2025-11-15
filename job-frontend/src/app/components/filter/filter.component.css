@@ -1,0 +1,11 @@
+.btn-buscar{
+    background-color: #2a5298;
+    color:white;
+    border-radius: 6px!important;
+    border: none;
+}
+
+.btn-limpar{
+    background-color: none;
+    color: #2a5298;
+}

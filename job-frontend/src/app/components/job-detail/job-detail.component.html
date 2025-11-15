@@ -1,0 +1,111 @@
+<div *ngIf="job; else noJob" class="card shadow-sm mb-3">
+  <div class="card-body job-card">
+
+    <button class="btn btn-outline-primary copy-btn" (click)="copyLink()" *ngIf="job">
+      Copiar link da vaga
+    </button>
+
+    <div class="title-row">
+      <h3 class="card-title title">{{ job.title }}</h3>
+
+      <div *ngIf="userService.isAdmin()" style="margin-top: 3px;">
+        <span class="badge rounded-pill"
+              [ngClass]="{
+                'status-aprovado': job.status === 'APROVADO',
+                'status-pendente': job.status === 'PENDENTE',
+                'status-rejeitado': job.status === 'REJEITADO',
+                'status-encerrado': job.status === 'ENCERRADO'
+              }">
+          {{ job.status }}
+        </span>
+      </div>
+    </div>
+
+    <h6 class="text-muted">{{ job.city }}, {{ job.uf }}</h6>
+
+    <p class="job-description">{{ job.description }}</p>
+    <p><strong>Tipo de contrato:</strong> {{ job.contractType }}</p>
+    <p><strong>Modalidade:</strong> {{ job.modality }}</p>
+
+    <hr class="divider">
+
+    <div class="job-contact">
+
+      <!-- Botão de candidatura centralizado -->
+      <div class="button-container" *ngIf="job.link">
+        <a href="{{ job.link }}" target="_blank" class="btn-link">
+          Candidatar-se no site da empresa
+        </a>
+      </div>
+
+      <div class="contact-columns">
+        <div class="contact-column" *ngIf="job.email">
+          <strong>Email:</strong>
+          <p><a href="mailto:{{ job.email }}">{{ job.email }}</a></p>
+        </div>
+        <div class="contact-column" *ngIf="job.phone">
+          <strong>Telefone:</strong>
+          <p>{{ formatPhone(job.phone) }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div *ngIf="getTagNames() !== 'Nenhuma tag especificada'; else noTags" class="d-flex flex-wrap justify-content-center gap-1 mt-1">
+        <span *ngFor="let tag of job?.tags" class="badge rounded-pill tag tag-normal">
+          {{ tag.name | lowercase }}
+        </span>
+        <span *ngFor="let course of job?.courses" class="badge tag tag-course rounded-pill">
+          {{ course.name }}
+        </span>
+      </div>
+      <ng-template #noTags></ng-template>
+    </div>
+  </div>
+  
+  <div class="job-date">
+    <p>{{ job.creationDate | date:'longDate' }}</p>
+  </div>
+
+  <!-- Botões de ação para admins -->
+  <div *ngIf="userService.isAdmin() && job.status !== 'ENCERRADO'">
+    <hr class="divider">
+    <div class="mt-4 admin-buttons" >
+      <button *ngIf="job.status !== 'APROVADO'" class="btn approve-btn" (click)="approveJob(job)">
+        ✓ Aprovar 
+      </button>
+      <button *ngIf="job.status !== 'REJEITADO'" class="btn reject-btn" (click)="rejectJob(job)">
+        X Rejeitar
+      </button>
+      <button *ngIf="job.status == 'APROVADO'" class="btn close-btn" (click)="closeJob(job)">
+        X Encerrar
+      </button>
+
+      <button class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1" (click)="openUserModal()" title="Ver informações do criador" style="margin-left: 15px;">
+        <i class="bi bi-info-circle"></i>
+      </button>
+
+      <!-- Modal -->
+      <div class="user-modal-backdrop" *ngIf="showUserModal" (click)="closeUserModal()"></div>
+
+      <div class="user-modal" *ngIf="showUserModal">
+        <div class="user-modal-content" (click)="$event.stopPropagation()">
+          <h3>Informações do Usuário</h3>
+          <p><strong>ID:</strong> {{ job.userId }}</p>
+          <p><strong>Nome:</strong> {{ job.userName }}</p>
+          <p><strong>Email:</strong> {{ job.userEmail }}</p>
+          <p *ngIf="job.userCompanyName" ><strong>Empresa:</strong> {{ job.userCompanyName }}</p>
+
+          <button class="btn btn-primary" (click)="closeUserModal()">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<ng-template #noJob>
+  <div class="alert alert-info">
+    Selecione uma vaga para ver os detalhes.
+  </div>
+</ng-template>

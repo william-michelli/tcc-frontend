@@ -1,0 +1,51 @@
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  word-wrap: break-word;   /* quebra palavras longas */
+  overflow-wrap: break-word;
+}
+
+.title-row, .job-date {
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+li:hover {
+  background: #f9f9f9;
+}
+
+.job-list-wrapper {
+  height: 900px; /* ou qualquer altura que caiba no seu layout */
+  overflow-y: auto;
+  padding-right: 8px; /* espaço para scrollbar sem sobrepor conteúdo */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #9c9d9e #f1f1f1;
+  max-width: 600px;  /* limita largura */
+  margin: 0 auto;    /* centraliza horizontalmente */
+}
+
+/* Scrollbar para Webkit (Chrome, Edge, Safari) */
+.job-list-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.job-list-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.job-list-wrapper::-webkit-scrollbar-thumb {
+  background: #9c9d9e;
+  border-radius: 4px;
+}
+
+.job-list-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #7a7b7c;
+}

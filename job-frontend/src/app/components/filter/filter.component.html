@@ -1,0 +1,44 @@
+<div class="d-flex align-items-end gap-3 mb-3">
+  <!-- FILTRO POR STATUS (apenas admin) -->
+  <div *ngIf="userService.isAdmin()" class="d-flex flex-column">
+    <label for="statusSelect" class="form-label fw-bold">Status:</label>
+    <select
+      id="statusSelect"
+      class="form-select w-auto"
+      (change)="onStatusChange($event)">
+
+      <option *ngFor="let status of statusOptions" [value]="status">
+        {{ status }}
+      </option>
+    </select>
+  </div>
+
+  <!-- FILTRO POR TEXTO (ocupa o restante do espaço) -->
+  <div class="d-flex flex-column flex-grow-1">
+    <div class="input-group w-100">
+      <span class="input-group-text bg-light border-end-0">
+        <i class="bi bi-search"></i>
+      </span>
+      <input
+        id="textFilter"
+        type="text"
+        class="form-control border-start-0"
+        placeholder="Digite para filtrar..."
+        [(ngModel)]="textFilter"
+        (keydown.enter)="onApplyTextFilter()"
+      />
+      <button
+        class="btn btn-buscar"
+        type="button"
+        (click)="onApplyTextFilter()">
+        Buscar
+      </button>
+      <button
+        class="btn btn-limpar"
+        type="button"
+        (click)="onClearTextFilter()">
+        Limpar
+      </button>
+    </div>
+  </div>
+</div>

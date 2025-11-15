@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <div class="card shadow-sm text-center">
+    <div class="card-header text-black">
+      <h3>Perfil</h3>
+    </div>
+    <div class="card-body">
+
+        <!-- FOTO DE PERFIL -->
+        <div class="d-flex justify-content-center mb-4">
+        <img 
+            [src]="userGoogle.picture || 'assets/default-avatar.png'" 
+            alt="Foto do usuário"
+            class="rounded-circle shadow-sm"
+            width="120"
+            height="120"
+        >
+        </div>
+
+        <!-- Exibição do nome -->
+        <div class="mb-3 text-start">
+            <label class="fw-bold text-secondary d-block mb-1">Nome</label>
+            <div class="ps-1">{{ userBackend.name }}</div>
+        </div>
+
+        <!-- Exibição do email -->
+        <div class="mb-3 text-start">
+            <label class="fw-bold text-secondary d-block mb-1">Email</label>
+            <div class="ps-1">{{ userBackend.email }}</div>
+        </div>
+
+        <form #userForm="ngForm" (ngSubmit)="submit(userForm)">
+        <!-- Campo editável -->
+        <mat-form-field appearance="outline" class="w-100 mb-3 mt-3">
+            <mat-label>Nome da Empresa</mat-label>
+            <input 
+            matInput 
+            [(ngModel)]="userBackend.companyName" 
+            name="companyName" 
+            #companyCtrl="ngModel">
+        </mat-form-field>
+
+        <button type="submit" class="save-btn">Salvar Mudanças</button>
+        <button type="button" class="voltar-btn" (click)="goBack()">Voltar</button>
+
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,131 @@
+/* ############## Para as TAGS ##############*/
+.badge {
+  font-weight: 600 !important;
+  padding: 0.35rem 0.75rem !important;
+  font-size: 0.85rem !important;
+}
+
+/* Status aprovado: verde pastel */
+.status-aprovado {
+  background-color: #d4f5d4 !important; /* verde bem claro */
+  color: #2e7d32 !important;            /* verde escuro para contraste */
+  border: 1px solid #2e7d32 !important; /* borda consistente */
+  border-radius: 6px;                    /* opcional: deixa arredondado */
+  padding: 4px 8px;                      /* opcional: deixa mais “botão” */
+}
+
+/* Status pendente: amarelo pastel */
+.status-pendente {
+  background-color: #fff59d !important; /* amarelo pastel mais visível */
+  color: #f57f17 !important;            /* amarelo escuro/laranja para contraste */
+  border: 1px solid #f57f17 !important;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+/* Status rejeitado: vermelho pastel */
+.status-rejeitado {
+  background-color: #f8d7da !important; /* vermelho rosa claro */
+  color: #c62828 !important;            /* vermelho escuro um pouco mais suave */
+  border: 1px solid #c62828 !important;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+/* Status encerrado: cinza suave */
+.status-encerrado {
+  background-color: #e0e0e0 !important; /* cinza claro */
+  color: #424242 !important;            /* cinza escuro para contraste */
+  border: 1px solid #9e9e9e !important; /* borda cinza intermediária */
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+.title{
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bold;
+  white-space: nowrap;      /* impede quebra de linha */
+  overflow: hidden;         /* esconde o que não cabe */
+  text-overflow: ellipsis;  /* adiciona "..." se o texto for grande */
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* espaço entre o título e o badge */
+}
+
+.title-row h3 {
+  margin: 0; /* remove espaçamento padrão */
+}
+
+.custom-snackbar-approved {
+  font-size: 18px;         /* aumenta o tamanho da fonte */
+  padding: 8px 8px;      /* aumenta o padding */
+  min-width: 300px;        /* largura mínima */
+  max-width: 600px;        /* largura máxima */
+  background-color: #3ec945; /* cor de fundo */
+  color: white;             /* cor do texto */
+  border-radius: 8px;       /* cantos arredondados */
+}
+
+.custom-snackbar-rejected {
+  font-size: 18px;         /* aumenta o tamanho da fonte */
+  padding: 8px 8px;      /* aumenta o padding */
+  min-width: 300px;        /* largura mínima */
+  max-width: 600px;        /* largura máxima */
+  background-color: #c62828; /* cor de fundo */
+  color: white;             /* cor do texto */
+  border-radius: 8px;       /* cantos arredondados */
+}
+
+/* NOVO - Snackbar para "Encerrado" */
+.custom-snackbar-closed {
+  font-size: 18px;
+  padding: 8px 8px;
+  min-width: 300px;
+  max-width: 600px;
+  background-color: #9e9e9e; /* cinza */
+  color: white;
+  border-radius: 8px;
+}
+
+/* Compatibilidade com ::ng-deep */
+::ng-deep .custom-snackbar-approved,
+::ng-deep .custom-snackbar-rejected,
+::ng-deep .custom-snackbar-closed {
+  font-size: 18px;
+  padding: 8px 8px;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.save-btn {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 3px;
+  background-color: #2a5298;
+  color:white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.voltar-btn {
+  margin-top: 0.5rem;
+  margin-left: 5px;
+  padding: 0.3rem 0.8rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: #2a5298;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* #######################################################################*/
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

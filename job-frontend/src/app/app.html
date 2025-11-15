@@ -1,0 +1,47 @@
+<!-- HEADER FIXO NO TOPO -->
+<header class="site-header">
+  <div class="header-container">
+    <div class="logo">
+
+      <img 
+        src="assets/images/logo_branco.png"
+        alt="Logo FSG"
+        class="logo-img"
+      />
+        <a routerLink="/" class="logo-text">Central de Oportunidades</a>
+    </div>
+
+    <button class="empresa-btn" [routerLink]="['/companies/login']" *ngIf="!user.google && !isLoginPage()">
+      É uma empresa? Cadastre-se
+    </button>
+  </div>
+</header>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div class="main-wrapper">
+  <div *ngIf="router.url === '/'">
+
+    <div class="container mt-4">
+      <!-- Filtro centralizado -->
+      <div class="filter-wrapper mb-3">
+        <app-filter (filterChanged)="jobList.applyFilter($event.status, $event.filterText)"></app-filter>
+      </div>
+
+      <!-- Conteúdo principal: lista e detalhe lado a lado -->
+      <div class="main-content">
+        <div class="job-list">
+          <div class="job-list-wrapper">
+            <app-job-list #jobList (jobSelected)="onJobSelected($event)"></app-job-list>
+          </div>
+        </div>
+
+        <div class="job-detail">
+          <app-job-detail [job]="selectedJob"></app-job-detail>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rotas que substituem conteúdo principal -->
+  <router-outlet></router-outlet>
+</div>

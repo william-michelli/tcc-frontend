@@ -1,0 +1,113 @@
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-header text-black">
+      <h3>Cadastro de Vaga</h3>
+    </div>
+    <div class="card-body">
+      <form #jobForm="ngForm" (ngSubmit)="submit(jobForm)">
+
+        <mat-form-field appearance="outline" class="w-100 mb-3">
+          <mat-label>Título</mat-label>
+          <input matInput [(ngModel)]="job.title" name="title" required #titleCtrl="ngModel">
+          <mat-error *ngIf="titleCtrl.invalid && (titleCtrl.touched || formSubmitted)">
+            Título é obrigatório
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 mb-3">
+          <mat-label>Descrição</mat-label>
+          <textarea matInput [(ngModel)]="job.description" name="description" rows="3" required #descrCtrl="ngModel"></textarea>
+          <mat-error *ngIf="descrCtrl.invalid && (descrCtrl.touched || formSubmitted)">
+            Descrição é obrigatória
+          </mat-error>
+        </mat-form-field>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Tipo de Contrato</mat-label>
+              <mat-select [(ngModel)]="job.contractType" name="contractType" required #contractCtrl="ngModel">
+                <mat-option *ngFor="let c of contractTypes" [value]="c">{{c}}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="contractCtrl.invalid && (contractCtrl.touched || formSubmitted)">
+                Tipo de contrato é obritório
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6 mb-3">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Modalidade</mat-label>
+              <mat-select [(ngModel)]="job.modality" name="modality" required #modalityCtrl="ngModel">
+                <mat-option *ngFor="let m of modalities" [value]="m">{{m}}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="modalityCtrl.invalid && (modalityCtrl.touched || formSubmitted)">
+                Modalidade é obrigatória
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>E-mail</mat-label>
+              <input matInput type="email" [(ngModel)]="job.email" name="email">
+            </mat-form-field>
+          </div>
+          <div class="col-md-6 mb-3">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Telefone</mat-label>
+              <input matInput [(ngModel)]="job.phone" name="phone">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <mat-form-field appearance="outline" class="w-100 mb-3">
+          <mat-label>Link para a vaga</mat-label>
+          <input matInput [(ngModel)]="job.link" name="link">
+        </mat-form-field>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>UF</mat-label>
+              <mat-select [(ngModel)]="job.uf" name="uf" required #ufCtrl="ngModel"> 
+                <mat-option *ngFor="let u of ufs" [value]="u">{{u}}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="ufCtrl.invalid && (ufCtrl.touched || formSubmitted)">
+                UF é obrigatória
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6 mb-3">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Cidade</mat-label>
+              <input matInput [(ngModel)]="job.city" name="city" required #cityCtrl="ngModel">
+              <mat-error *ngIf="cityCtrl.invalid && (cityCtrl.touched || formSubmitted)">
+                Cidade é obrigatória
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <mat-form-field appearance="outline" class="w-100 mb-3">
+          <mat-label>Cursos</mat-label>
+          <mat-select [(ngModel)]="job.coursesids" multiple name="courses" required #coursesCtrl="ngModel"> 
+            <mat-option *ngFor="let c of courses" [value]="c.id">{{ c.name }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="coursesCtrl.invalid && (coursesCtrl.touched || formSubmitted)">
+              Cursos é obrigatório
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Tags</mat-label>
+            <input matInput [(ngModel)]="tagsInput" name="tags" placeholder="Separadas por ponto e virgula">
+        </mat-form-field>
+
+        <button type="submit" class="save-btn">Enviar</button>
+        <button class="voltar-btn" (click)="goBack()">Voltar</button>
+      </form>
+    </div>
+  </div>
+</div>

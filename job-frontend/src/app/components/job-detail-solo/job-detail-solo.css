@@ -1,0 +1,6 @@
+.standalone-wrapper {
+    max-width: 600px;        /* largura máxima do card */
+    margin: 0 auto;
+    margin-top: 40px
+}
+

@@ -1,0 +1,74 @@
+.login-container {
+  position: fixed; /* em vez de absolute */
+  top: 5rem; /* move para baixo do header (ajuste conforme a altura do header) */
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  z-index: 1100; /* garante que fique acima de outros elementos */
+}
+
+#buttonDiv {
+  /* deixa o botão no mesmo lugar do card */
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.user-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.user-email {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0;
+}
+
+.logout-btn {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: #2a5298;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.register-btn {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 3px;
+  background-color: #2a5298;
+  color:white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.logout-btn:hover {
+  background: #2a529813;
+  color: black;
+}

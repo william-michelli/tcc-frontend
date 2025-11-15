@@ -1,0 +1,107 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap');
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Filtro centralizado */
+.filter-wrapper {
+  width: 50%;
+  margin: 0 auto 1rem auto;
+}
+
+/* Conteúdo principal: lista + detalhes */
+.main-content {
+  display: flex;
+  flex: 1;
+  gap: 1rem; /* espaço entre lista e detalhes */
+  height: calc(100vh - 150px); /* ajuste altura, considerando header/filtro */
+}
+
+/* Lista ocupa 40% */
+.job-list {
+  flex: 0 0 40%;
+}
+
+/* Detalhes ocupa 60% */
+.job-detail {
+  flex: 0 0 60%;
+}
+
+.header-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* HEADER ############################################### */
+
+.logo {
+  display: flex;
+  align-items: center; /* Centraliza verticalmente */
+  gap: 10px; /* Espaço entre logo e texto */
+}
+
+.logo-img {
+  width: 120px;
+  height: auto;
+  display: block;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  line-height: 1; /* evita desalinhamento vertical */
+}
+
+/* BOTÃO "É UMA EMPRESA?" */
+.empresa-btn {
+  background-color: white;
+  color: #006bb3;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.empresa-btn:hover {
+  background-color: #e6f3ff;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #006bb3;
+  color: white;
+  padding: 10px 40px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-wrapper {
+  padding-top: 70px; /* importante: altura do header para não sobrepor conteúdo */
+}

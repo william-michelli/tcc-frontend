@@ -1,0 +1,17 @@
+<div class="login-container">
+  <div class="login-card" *ngIf="!user.google">
+    <h2>Bem-vindo!</h2>
+    <p>Faça login para cadastrar e gerenciar suas vagas</p>
+    <div id="g_id_onload"></div>
+    <div id="buttonDiv"></div> <!-- Botão do GOOGLE -->
+  </div>
+
+  <div class="user-card" *ngIf="user.google">
+    <img [src]="user.google.picture" alt="Foto" class="user-photo" />
+    <div class="user-info">
+      <p class="user-name">Olá, {{ user.google.name }}</p>
+      <p class="user-email">{{ user.google.email }}</p>
+    </div>
+    <button class="logout-btn" (click)="logout()">Sair</button>
+  </div>
+</div>
