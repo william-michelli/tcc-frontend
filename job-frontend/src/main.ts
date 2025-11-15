@@ -7,6 +7,9 @@ import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-s
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+
+
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -27,5 +30,6 @@ bootstrapApplication(AppComponent, {
       } as SocialAuthServiceConfig,
     },
     provideRouter(routes),
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
 }).catch(err => console.error(err));
