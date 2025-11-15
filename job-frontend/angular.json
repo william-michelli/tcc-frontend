@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/job-frontend/browser",
+            "outputPath": "dist/job-frontend",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
