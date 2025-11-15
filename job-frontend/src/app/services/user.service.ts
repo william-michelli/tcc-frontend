@@ -18,7 +18,8 @@ export class UserService {
   private storageKeyGoogle = 'googleUser';
   private storageKeyBackend = 'backendUser';
 
-  private baseUrl = 'http://localhost:5294/api/';
+  //private baseUrl = 'http://localhost:5294/api/';
+  private baseUrl = 'https://servicolinux-epgcchhfetabakda.brazilsouth-01.azurewebsites.net/';
 
   private putUrl = this.baseUrl + 'Login'; 
 

@@ -11,7 +11,8 @@ import { JobCreate } from '../models/job-create';
   providedIn: 'root'
 })
 export class JobService {
-  private baseUrl = 'http://localhost:5294/api/';
+  //private baseUrl = 'http://localhost:5294/api/';
+  private baseUrl = 'https://servicolinux-epgcchhfetabakda.brazilsouth-01.azurewebsites.net/';
 
   private apiUrl = this.baseUrl + 'Job'; 
   private coursesUrl = this.baseUrl + 'Job/Courses'; 
