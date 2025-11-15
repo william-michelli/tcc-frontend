@@ -59,7 +59,7 @@ export class UserService {
     const current = this.userSubject.getValue();
     this.userSubject.next({ ...current, backend: user });
 
-    this.router.navigate(['/']);//Navega pra tela inicial
+    window.location.href = '/tcc-frontend/';//Navega pra tela inicial
   }
 
   clearBackendUser() {

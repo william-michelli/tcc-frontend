@@ -62,8 +62,8 @@ export class JobDetailComponent {
 
   copyLink() {
     if (this.job) {
-      const url = `${window.location.origin}/jobs/${this.job.id}`;
-      navigator.clipboard.writeText(url).then(() => {
+      const base = window.location.origin + '/tcc-frontend/#'; 
+      navigator.clipboard.writeText(base).then(() => {
         this.snackBar.open('Link copiado!', 'Fechar', { duration: 2000 });
       });
     }

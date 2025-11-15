@@ -92,6 +92,6 @@ export class JobFormComponent  {
       }
     });
 
-    this.router.navigate(['/']);//Navega pra tela inicial
+    window.location.href = '/tcc-frontend/';//Navega pra tela inicial
   }
 }
