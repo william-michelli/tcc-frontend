@@ -85,13 +85,13 @@ export class JobFormComponent  {
           duration: 3000,
           panelClass: ['custom-snackbar-approved'] // aqui você aplica a classe
         });
+
+        window.location.href = '/tcc-frontend/';//Navega pra tela inicial
       },
       error: (err) => {
         console.error('Erro ao cadastrar job', err);
         alert('Erro ao cadastrar job');
-      }
+      },
     });
-
-    window.location.href = '/tcc-frontend/';//Navega pra tela inicial
   }
 }
