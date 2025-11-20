@@ -105,3 +105,62 @@
 .main-wrapper {
   padding-top: 70px; /* importante: altura do header para não sobrepor conteúdo */
 }
+
+.menu-btn {
+  background: none;
+  color: black;
+  font-size: 1.8rem;
+  border: none;
+}
+
+/* ========== MOBILE (ATÉ 1400px) ========== */
+@media (max-width: 1400px) {
+
+  .menu-btn {
+    display: block;
+  }
+
+  /* Remove o layout lado a lado */
+  .main-content {
+    flex-direction: column;
+    gap: 0;
+    height: auto !important;
+  }
+
+  /* Lista ocupa 100% */
+  .job-list {
+    width: 100%;
+    flex: unset;
+  }
+
+  /* Esconde o painel de detalhes no mobile */
+  .job-detail {
+    display: none !important;
+  }
+
+  /* Ajusta o filtro */
+  .filter-wrapper {
+    width: 100% !important;
+    margin: 0 0 1rem 0;
+    padding: 0 12px;
+  }
+
+  /* Container deixa de forçar altura full-screen */
+  .container {
+    height: auto !important;
+  }
+
+  /* Header pequeno e simples */
+  .logo-img {
+    width: 80px;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  /* Some com o botão lateral */
+  .empresa-btn {
+    display: none;
+  }
+}

@@ -1,4 +1,4 @@
-<div class="login-container">
+<div class="login-container" *ngIf="!isMobile">
   <!-- Card do usuário -->
   <div class="user-card" *ngIf="user.google">
     <img [src]="user.google.picture" alt="Foto" class="user-photo">
@@ -12,3 +12,24 @@
     <button class="logout-btn" (click)="logout()">Sair</button>
   </div>
 </div>
+
+<button class="menu-btn" *ngIf="isMobile" (click)="toggleUserMenu()">
+  ☰
+</button>
+
+<!-- MENU MOBILE -->
+<div *ngIf="user.google">
+  <div class="mobile-menu" *ngIf="menuOpen">
+    <p class="user-name">Olá, {{ user.google.name }}</p>
+    <button class="mobile-btn" (click)="newJob()">Nova Vaga</button>
+    <button class="mobile-btn" (click)="enterProfile()">Perfil</button>
+    <button class="mobile-btn-logout" (click)="logout()">Sair</button>
+  </div>
+</div>
+
+<div *ngIf="!user.google">
+    <div class="mobile-menu" *ngIf="menuOpen">
+        <button class="mobile-btn" [routerLink]="['/companies/login']">Cadastre sua empresa</button>
+    </div>
+</div>
+

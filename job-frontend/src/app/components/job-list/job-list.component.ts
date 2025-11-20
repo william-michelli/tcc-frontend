@@ -4,6 +4,9 @@ import { UserService } from '../../services/user.service';
 import { Job } from '../../models/job';
 import { CommonModule,registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { JobDetailModal } from '../job-detail-modal/job-detail-modal';
 
 // <-- registra o locale
 registerLocaleData(localePt);
@@ -11,7 +14,7 @@ registerLocaleData(localePt);
 @Component({
   selector: 'app-job-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CommonModule, MatDialogModule],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' } // <-- define locale aqui
   ],
@@ -31,18 +34,26 @@ export class JobListComponent implements OnInit {
 
   constructor(
     private jobService: JobService,
-    public userService: UserService
+    public userService: UserService,
+    private dialog: MatDialog,
+    private breakpoint: BreakpointObserver
   ) { }
 
-ngOnInit(): void {
-  // Inscreve no BehaviorSubject para atualizações locais
-  this.jobService.jobs$.subscribe(jobs => {
-    this.jobs = jobs; // sempre reflete o estado atual
-  });
+  isMobile = false;
 
-  // Carrega os jobs iniciais
-  this.loadJobs(true);
-}
+  ngOnInit(): void {
+    // Inscreve no BehaviorSubject para atualizações locais
+    this.jobService.jobs$.subscribe(jobs => {
+      this.jobs = jobs; // sempre reflete o estado atual
+    });
+
+    this.breakpoint.observe(['(max-width: 1400px)']).subscribe(result => {
+      this.isMobile = result.matches;
+    });
+    
+    // Carrega os jobs iniciais
+    this.loadJobs(true);
+  }
 
 loadJobs(reset: boolean = false) {
   if (this.loading || this.allLoaded) return;
@@ -89,6 +100,13 @@ loadJobs(reset: boolean = false) {
   }
 
   selectJob(job: Job) {
-    this.jobSelected.emit(job);
+    if (window.innerWidth < 1400) {
+      this.dialog.open(JobDetailModal, {
+        width: '95%',
+        data: job
+      });
+    } else {
+      this.jobSelected.emit(job);
+    }
   }
 }

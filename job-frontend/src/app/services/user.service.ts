@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { UserData, UserGoogle } from '../models/userData';
 import { Router  } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../enviroment/enviroment';
 
 declare const google: any; // Permite acessar a API do Google
 
@@ -18,8 +19,7 @@ export class UserService {
   private storageKeyGoogle = 'googleUser';
   private storageKeyBackend = 'backendUser';
 
-  //private baseUrl = 'http://localhost:5294/api/';
-  private baseUrl = 'https://servicolinux-epgcchhfetabakda.brazilsouth-01.azurewebsites.net/api/';
+  private baseUrl = environment.baseUrl;
 
   private putUrl = this.baseUrl + 'Login'; 
 

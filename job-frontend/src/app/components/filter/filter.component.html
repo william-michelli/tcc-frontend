@@ -30,12 +30,14 @@
       <button
         class="btn btn-buscar"
         type="button"
+        *ngIf="!isMobile"
         (click)="onApplyTextFilter()">
         Buscar
       </button>
       <button
         class="btn btn-limpar"
         type="button"
+        *ngIf="!isMobile"
         (click)="onClearTextFilter()">
         Limpar
       </button>

@@ -4,6 +4,7 @@ import { UserService } from '../../services/user.service';
 import { Job } from '../../models/job';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-filter',
@@ -14,10 +15,19 @@ import { FormsModule } from '@angular/forms';
 })
 export class FilterComponent {
   jobs: Job[] = [];
+  isMobile = false;
+
+  
+  ngOnInit(): void {
+    this.breakpoint.observe(['(max-width: 1400px)']).subscribe(result => {
+      this.isMobile = result.matches;
+    });
+  }
 
   constructor(
     private jobService: JobService,
-    public userService: UserService
+    public userService: UserService,
+    private breakpoint: BreakpointObserver
   ) {}
 
   statusOptions: string[] = ['TODOS', 'APROVADO', 'PENDENTE', 'REJEITADO', 'ENCERRADO'];

@@ -49,5 +49,4 @@ export class AppComponent {
   isLoginPage(): boolean {
     return this.router.url === '/companies/login'; // ou a rota que deseja
   }
-  
 }

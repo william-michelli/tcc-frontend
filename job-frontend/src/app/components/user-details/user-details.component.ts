@@ -1,12 +1,13 @@
 import { Component, NgZone, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserService, AppUser } from '../../services/user.service';
-import { Router  } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-user-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule ],
   templateUrl: './user-details.component.html',
   styleUrls: ['./user-details.component.css']
 })
@@ -14,16 +15,22 @@ import { Router  } from '@angular/router';
 export class UserDetailsComponent {
   
   user: AppUser = {};
+  isMobile = false;
 
   constructor(
     public router: Router,    
-    private userService: UserService
+    private userService: UserService,
+    private breakpoint: BreakpointObserver
   ) {}
 
   ngOnInit() {
     // Subscribe para receber atualizações do usuário
     this.userService.user$.subscribe(u => {
       this.user = u;
+    });
+
+    this.breakpoint.observe(['(max-width: 1400px)']).subscribe(result => {
+      this.isMobile = result.matches;
     });
   }
 
@@ -37,5 +44,12 @@ export class UserDetailsComponent {
 
   enterProfile() {
     this.router.navigate(['/profile']);
+  }
+
+    
+  menuOpen = false;
+
+  toggleUserMenu() {
+    this.menuOpen = !this.menuOpen;
   }
 }

@@ -6,13 +6,13 @@ import { UserData } from '../models/userData';
 import { Course } from '../models/course';
 import { UserService } from '../services/user.service';
 import { JobCreate } from '../models/job-create';
+import { environment } from '../enviroment/enviroment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JobService {
-  //private baseUrl = 'http://localhost:5294/api/';
-  private baseUrl = 'https://servicolinux-epgcchhfetabakda.brazilsouth-01.azurewebsites.net/api/';
+  private baseUrl = environment.baseUrl;
 
   private apiUrl = this.baseUrl + 'Job'; 
   private coursesUrl = this.baseUrl + 'Job/Courses'; 
